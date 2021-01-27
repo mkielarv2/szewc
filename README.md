@@ -1,0 +1,1 @@
+You can find .apk file in a releases tab
