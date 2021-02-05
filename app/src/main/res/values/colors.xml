@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">#FF6200EE</color>
     <color name="colorSecondary">#FFFFFFFF</color>
+    <color name="gridBackground">#FF000000</color>
+    <color name="blankLineColor">#2FFFFFFF</color>
 </resources>
