@@ -21,12 +21,12 @@ class GridView(context: Context) : View(context) {
     private val backgroundColor = resources.getColor(R.color.gridBackground)
     private val blankLineColor = resources.getColor(R.color.blankLineColor)
     private val marginPercent = 0.075F
-    private val lineWidth = 15F
     private val cellAlpha = 80
 
     private val paint = Paint()
     private val linePaint = Paint()
     private val cellPaint = Paint()
+    private var lineWidth = 0F
     private var cellSize = 0F
     private var margin = 0F
 
@@ -182,6 +182,7 @@ class GridView(context: Context) : View(context) {
         val size = MeasureSpec.getSize(widthMeasureSpec)
         cellSize = (size - margin * 2) / grid.size
         margin = floor(marginPercent * size)
+        lineWidth = size * 0.025F
         super.onMeasure(widthMeasureSpec, widthMeasureSpec)
     }
 }

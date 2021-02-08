@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSize">25sp</dimen>
+    <dimen name="onboardingPaddingTitle">20dp</dimen>
+    <dimen name="onboardingMarginTop">20dp</dimen>
+    <dimen name="onboardingMarginGrid">60dp</dimen>
+</resources>

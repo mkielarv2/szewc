@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onboarding1Fragment"
+            app:destination="@id/onboarding1Fragment" />
     </fragment>
 
     <fragment
@@ -22,6 +25,31 @@
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding1Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding1Fragment"
+        android:label="Zasady Gry"
+        tools:layout="@layout/fragment_onboarding1">
+        <action
+            android:id="@+id/action_onboarding1Fragment_to_onboarding2Fragment"
+            app:destination="@id/onboarding2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding2Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding2Fragment"
+        android:label="Zasady Gry">
+        <action
+            android:id="@+id/action_onboarding2Fragment_to_onboarding3Fragment"
+            app:destination="@id/onboarding3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding3Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding3Fragment"
+        android:label="Zasady Gry">
+        <action
+            android:id="@+id/action_onboarding3Fragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
