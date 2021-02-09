@@ -12,7 +12,7 @@ import com.mkielar.szewc.databinding.MainFragmentBinding
 class MainFragment : Fragment() {
     private lateinit var binding: MainFragmentBinding
 
-    override fun onCreateView(
+            override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -26,6 +26,11 @@ class MainFragment : Fragment() {
         binding.startButton.setOnClickListener {
             findNavController()
                 .navigate(MainFragmentDirections.actionMainFragmentToGameFragment())
+        }
+
+        binding.networkButton.setOnClickListener {
+            findNavController()
+                    .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment())
         }
     }
 }

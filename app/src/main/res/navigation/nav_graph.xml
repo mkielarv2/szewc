@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_netGameFragment"
+            app:destination="@id/netGameFragment" />
     </fragment>
 
     <fragment
@@ -22,6 +25,16 @@
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/netGameFragment"
+        android:name="com.mkielar.szewc.core.view.NetGameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_netGameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>
