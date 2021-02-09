@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_gameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="players"
+            app:argType="com.mkielar.szewc.core.model.Player[]" />
     </fragment>
     <fragment
         android:id="@+id/onboarding1Fragment"
