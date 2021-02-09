@@ -14,4 +14,9 @@
 
     <color name="color1">#FFF0C431</color>
     <color name="color2">#FF18EDC2</color>
+
+
+    <color name="color1light">#3FF0C431</color>
+    <color name="color2light">#3F18EDC2</color>
+    <color name="color3light">#3F18ED4C</color>
 </resources>

@@ -55,6 +55,8 @@ class GameFragment : Fragment() {
 
         fragmentGameBinding.p1Nick.text = players[0].nick
         fragmentGameBinding.p2Nick.text = players[1].nick
+        fragmentGameBinding.p1Score.text = "0"
+        fragmentGameBinding.p2Score.text = "0"
 
         gridView = GridView(requireContext()).apply {
             layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT, Gravity.CENTER)
@@ -69,12 +71,14 @@ class GameFragment : Fragment() {
         fragmentGameBinding.container.addView(gridView)
 
         viewModel.scoreUpdateCallback = {
-            fragmentGameBinding.p1Nick.text = "${players[0].nick}${players[0].points}"
-            fragmentGameBinding.p2Nick.text = "${players[1].nick}${players[1].points}"
+            fragmentGameBinding.p1Score.text = players[0].points.toString()
+            fragmentGameBinding.p2Score.text = players[1].points.toString()
         }
 
         viewModel.gridUpdateCallback = {
-            gridView.drawGrid(it)
+            fragmentGameBinding.p1Card.setCardBackgroundColor(Color.RED)
+            fragmentGameBinding.p1Card.setCardBackgroundColor(Color.WHITE)
+            gridView.drawGrid(it.grid)
         }
 
         viewModel.endGameCallback = {
