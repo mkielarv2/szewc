@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_onboarding1Fragment"
             app:destination="@id/onboarding1Fragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_creditsFragment"
+            app:destination="@id/creditsFragment" />
     </fragment>
 
     <fragment
@@ -55,4 +58,9 @@
             android:id="@+id/action_onboarding3Fragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/creditsFragment"
+        android:name="com.mkielar.szewc.CreditsFragment"
+        android:label="fragment_credits"
+        tools:layout="@layout/fragment_credits" />
 </navigation>

@@ -44,6 +44,11 @@ class MainFragment : Fragment() {
                 .navigate(MainFragmentDirections.actionMainFragmentToOnboarding1Fragment())
         }
 
+        binding.creditsButton.setOnClickListener {
+            findNavController()
+                .navigate(MainFragmentDirections.actionMainFragmentToCreditsFragment())
+        }
+
         binding.startButton.setOnClickListener {
             var valid = true
 

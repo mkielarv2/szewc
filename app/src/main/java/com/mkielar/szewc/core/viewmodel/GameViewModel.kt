@@ -10,7 +10,7 @@ class GameViewModel : ViewModel() {
 
     private val game: Game
 
-    var gridUpdateCallback: ((Grid) -> Unit)? = null
+    var gridUpdateCallback: ((Game) -> Unit)? = null
     var endGameCallback: ((List<Player>) -> Unit)? = null
     var scoreUpdateCallback: ((List<Player>) -> Unit)? = null
 
@@ -97,6 +97,6 @@ class GameViewModel : ViewModel() {
         (game.turnCounter + game.offsetCounter) % game.players.size
 
     private fun requestDrawGrid() {
-        gridUpdateCallback?.invoke(game.grid)
+        gridUpdateCallback?.invoke(game)
     }
 }
