@@ -1,5 +1,6 @@
 package com.mkielar.szewc.core.viewmodel
 
+import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.mkielar.szewc.core.model.*
 import io.socket.client.IO
@@ -7,20 +8,28 @@ import org.json.JSONObject
 
 
 class NetGameViewModel : ViewModel() {
-    private lateinit var players : List<Player>
+    private var players : List<Player> = listOf(Player("Adam", Color.RED), Player("Eve", Color.BLUE))
     private val gridSize = 3
-    private val mSocket = IO.socket("https://naszserver.pl") // TODO replace placeholder
+    private val mSocket = IO.socket("http://172.21.9.65:3000") // TODO replace placeholder
+    private var myColor = Color.RED
 
-    private lateinit var game: Game
+    private var game: Game
 
     var gridUpdateCallback: ((Grid) -> Unit)? = null
     var endGameCallback: ((List<Player>) -> Unit)? = null
 
     init {
+        val vertical = List(gridSize * (gridSize + 1)) { Line(null) }
+        val horizontal = List(gridSize * (gridSize + 1)) { Line(null) }
+        val cells = List(gridSize * gridSize) { Cell(null) }
+        val grid = Grid(vertical, horizontal, cells, gridSize)
+        game = Game(grid, players)
         mSocket.connect()
-        mSocket.emit("joined the game", "Username") // TODO replace placeholder
+        mSocket.on("connect") {
+            mSocket.emit("joined the game", "Username") // TODO replace placeholder
+        }
         mSocket.on("game started") {
-            val data = it[0] as JSONObject
+            val data = it[0]
             println(data)
             val vertical = List(gridSize * (gridSize + 1)) { Line(null) }
             val horizontal = List(gridSize * (gridSize + 1)) { Line(null) }
@@ -29,9 +38,13 @@ class NetGameViewModel : ViewModel() {
             game = Game(grid, players)
         }
         mSocket.on("move") {
-            val data = it[0] as JSONObject
-            println(data)
-            requestDrawGrid()
+            val data = it[0] as String
+            val new = data.split(';')
+            println(new[0])
+            when(new[0]) {
+                "0" -> updateLineOf(game.grid.vertical, new[1].toInt())
+                "1" -> updateLineOf(game.grid.horizontal, new[1].toInt())
+            }
         }
         mSocket.on("end") {
             val data = it[0] as JSONObject
@@ -49,11 +62,15 @@ class NetGameViewModel : ViewModel() {
     }
 
     fun verticalTouch(index: Int) {
-        updateLineOf(game.grid.vertical, index)
+        if(players[getCurrentPlayerIndex()].color == myColor)
+        mSocket.emit("move", "0;$index")
+        //updateLineOf(game.grid.vertical, index)
     }
 
     fun horizontalTouch(index: Int) {
-        updateLineOf(game.grid.horizontal, index)
+        if(players[getCurrentPlayerIndex()].color == myColor)
+        mSocket.emit("move", "1;$index")
+        //updateLineOf(game.grid.horizontal, index)
     }
 
     private fun updateLineOf(
@@ -66,9 +83,8 @@ class NetGameViewModel : ViewModel() {
             game.turnCounter++
 
             calculateClosedCells()
-            mSocket.emit("move", game.grid)
-            //checkEndGame()
-            //requestDrawGrid()
+            checkEndGame()
+            requestDrawGrid()
         }
     }
 
@@ -116,7 +132,7 @@ class NetGameViewModel : ViewModel() {
     }
 
     private fun getCurrentPlayerIndex() =
-        (game.turnCounter + game.offsetCounter) % game.players.size
+        (game.turnCounter + game.offsetCounter) % 2 //game.players.size
 
     private fun requestDrawGrid() {
         gridUpdateCallback?.invoke(game.grid)
