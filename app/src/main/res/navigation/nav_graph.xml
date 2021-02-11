@@ -45,6 +45,9 @@
         <action
             android:id="@+id/action_netGameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="playerName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/onboarding1Fragment"

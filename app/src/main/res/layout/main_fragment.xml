@@ -60,6 +60,16 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
+                android:id="@+id/networkButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/startOnlineGame"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
                 android:id="@+id/onboardingButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,12 +88,5 @@
 
 
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/networkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="START ONLINE GAME" />
 
 </FrameLayout>

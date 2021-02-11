@@ -99,7 +99,7 @@ class GameViewModel : ViewModel() {
         }
     }
 
-    private fun getCurrentPlayerIndex() =
+    fun getCurrentPlayerIndex() =
         (game.turnCounter + game.offsetCounter) % game.players.size
 
     private fun requestDrawGrid() {

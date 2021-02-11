@@ -24,6 +24,7 @@
     <string name="startGame">Rozpocznij grę</string>
     <string name="rules">Zasady</string>
     <string name="aboutUs">O nas</string>
-    <string name="player1">Gracz 1</string>
+    <string name="player1">Gracz 1 (online)</string>
     <string name="player2">Gracz 2</string>
+    <string name="startOnlineGame">Rozpocznij grę online</string>
 </resources>

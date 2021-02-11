@@ -83,7 +83,7 @@ class MainFragment : Fragment() {
 
         binding.networkButton.setOnClickListener {
             findNavController()
-                    .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment())
+                    .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment(binding.player1EditText.text.toString()))
         }
     }
 }
