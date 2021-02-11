@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.mkielar.szewc.MainFragment"
-        android:label="main_fragment"
+        android:label="Szewc"
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
@@ -16,16 +16,25 @@
         <action
             android:id="@+id/action_mainFragment_to_netGameFragment"
             app:destination="@id/netGameFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_onboarding1Fragment"
+            app:destination="@id/onboarding1Fragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_creditsFragment"
+            app:destination="@id/creditsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.mkielar.szewc.core.view.GameFragment"
-        android:label="fragment_game"
+        android:label="Szewc"
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="players"
+            app:argType="com.mkielar.szewc.core.model.Player[]" />
     </fragment>
 
     <fragment
@@ -37,4 +46,34 @@
             android:id="@+id/action_netGameFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/onboarding1Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding1Fragment"
+        android:label="Zasady Gry"
+        tools:layout="@layout/fragment_onboarding1">
+        <action
+            android:id="@+id/action_onboarding1Fragment_to_onboarding2Fragment"
+            app:destination="@id/onboarding2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding2Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding2Fragment"
+        android:label="Zasady Gry">
+        <action
+            android:id="@+id/action_onboarding2Fragment_to_onboarding3Fragment"
+            app:destination="@id/onboarding3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboarding3Fragment"
+        android:name="com.mkielar.szewc.onboarding.Onboarding3Fragment"
+        android:label="Zasady Gry">
+        <action
+            android:id="@+id/action_onboarding3Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/creditsFragment"
+        android:name="com.mkielar.szewc.CreditsFragment"
+        android:label="O Nas"
+        tools:layout="@layout/fragment_credits" />
 </navigation>

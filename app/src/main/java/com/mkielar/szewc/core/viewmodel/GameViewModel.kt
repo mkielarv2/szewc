@@ -5,19 +5,26 @@ import androidx.lifecycle.ViewModel
 import com.mkielar.szewc.core.model.*
 
 class GameViewModel : ViewModel() {
-    private val players = listOf(Player("Adam", Color.RED), Player("Eve", Color.BLUE))
     private val gridSize = 3
 
-    private val game: Game
-
-    var gridUpdateCallback: ((Grid) -> Unit)? = null
+    var gridUpdateCallback: ((Game) -> Unit)? = null
     var endGameCallback: ((List<Player>) -> Unit)? = null
+    var scoreUpdateCallback: ((List<Player>) -> Unit)? = null
+
+    private var grid: Grid
+    private var game: Game
+
+    var players = listOf(Player("Adam", Color.RED), Player("Eve", Color.BLUE))
+        set(value) {
+            field = value
+            game = Game(grid, value)
+        }
 
     init {
         val vertical = List(gridSize * (gridSize + 1)) { Line(null) }
         val horizontal = List(gridSize * (gridSize + 1)) { Line(null) }
         val cells = List(gridSize * gridSize) { Cell(null) }
-        val grid = Grid(vertical, horizontal, cells, gridSize)
+        grid = Grid(vertical, horizontal, cells, gridSize)
         game = Game(grid, players)
     }
 
@@ -44,6 +51,7 @@ class GameViewModel : ViewModel() {
 
             calculateClosedCells()
             checkEndGame()
+            scoreUpdateCallback?.invoke(game.players)
             requestDrawGrid()
         }
     }
@@ -95,6 +103,6 @@ class GameViewModel : ViewModel() {
         (game.turnCounter + game.offsetCounter) % game.players.size
 
     private fun requestDrawGrid() {
-        gridUpdateCallback?.invoke(game.grid)
+        gridUpdateCallback?.invoke(game)
     }
 }
