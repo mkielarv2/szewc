@@ -3,6 +3,27 @@
     <string name="boxes_dialog_restart">RESTART</string>
     <string name="boxes_dialog_close">CLOSE</string>
     <string name="boxes_dialog_winner">Won</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="onboarding3label">Gra kończy się, gdy wszystkie pola są zajęte. Wygrywa gracz z większą liczbą punktów</string>
+    <string name="next">Dalej</string>
+    <string name="onboarding2label">Zamykając kwadrat dostajesz punkt oraz dodatkowy ruch</string>
+    <string name="onboarding1label">Stawiaj kreski dotykając lini na planszy</string>
+    <string name="aboutUsLabel">O nas</string>
+    <string name="aboutUsContent">Jesteśmy studentami drugiego roku informatyki na Wydziale Matematyki i Informatyki Uniwersytetu im. Adama Mickiewicza w Poznaniu. Niniejsza aplikacja powstaje z inicjatywy projektu z przedmiotu inżynierii oprogramowania. Pracujemy grupowo realizując przy tym metodyki Agile oraz SCRUM.</string>
+    <string name="teamLabel">Zespół</string>
+    <string name="teamMembers">
+        Marcin Kielar<br/>
+        Marcin Matoga<br/>
+        Mateusz Piątkowski<br/>
+        Bartek Wawrzyniak<br/>
+        Dasha Moroz<br/>
+        Emil Gutkiewicz<br/>
+        Adam Skowronek<br/>
+        Janek Majchrzycki
+    </string>
+    <string name="startGame">Rozpocznij grę</string>
+    <string name="rules">Zasady</string>
+    <string name="aboutUs">O nas</string>
+    <string name="player1">Gracz 1</string>
+    <string name="player2">Gracz 2</string>
 </resources>

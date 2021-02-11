@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.mkielar.szewc.MainFragment"
-        android:label="main_fragment"
+        android:label="Szewc"
         tools:layout="@layout/main_fragment">
         <action
             android:id="@+id/action_mainFragment_to_gameFragment"
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.mkielar.szewc.core.view.GameFragment"
-        android:label="fragment_game"
+        android:label="Szewc"
         tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_mainFragment"
@@ -61,6 +61,6 @@
     <fragment
         android:id="@+id/creditsFragment"
         android:name="com.mkielar.szewc.CreditsFragment"
-        android:label="fragment_credits"
+        android:label="O Nas"
         tools:layout="@layout/fragment_credits" />
 </navigation>

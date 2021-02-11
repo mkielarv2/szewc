@@ -21,25 +21,27 @@
             android:orientation="vertical">
 
             <EditText
+                android:inputType="text"
                 android:id="@+id/player1EditText"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="Gracz 1"
+                android:hint="@string/player1"
                 app:layout_constraintBottom_toTopOf="@+id/player2EditText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
+                android:inputType="text"
                 android:id="@+id/player2EditText"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="10dp"
                 android:gravity="center"
-                android:hint="Gracz 2"
+                android:hint="@string/player2"
                 app:layout_constraintBottom_toTopOf="@+id/startButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Rozpocznij grę"
+                android:text="@string/startGame"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -61,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Zasady" />
+                android:text="@string/rules" />
 
             <Button
                 android:id="@+id/creditsButton"
@@ -69,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="O nas" />
+                android:text="@string/aboutUs" />
         </LinearLayout>
 
 

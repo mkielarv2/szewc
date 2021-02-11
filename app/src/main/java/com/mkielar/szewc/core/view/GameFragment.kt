@@ -83,9 +83,9 @@ class GameFragment : Fragment() {
 
         viewModel.endGameCallback = {
             if (it.size == 1) {
-                Toast.makeText(requireContext(), "Winner is ${it.first().nick}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Wygrał ${it.first().nick}", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireContext(), "Tie", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Remis", Toast.LENGTH_SHORT).show()
             }
 
             viewLifecycleOwner.lifecycleScope.launch {
