@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="O nas"
+                    android:text="@string/aboutUsLabel"
                     android:textColor="@color/black"
                     android:textSize="35sp" />
 
@@ -43,7 +43,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="30dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum facilisis bibendum pharetra. Nulla vitae nulla eget metus fermentum ullamcorper sit amet ac risus. Etiam facilisis purus in leo fermentum, ut dapibus tellus gravida. Duis fermentum nulla quis dolor mollis gravida. Nullam sollicitudin pulvinar ex non volutpat."
+                    android:text="@string/aboutUsContent"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -72,7 +72,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Zespół"
+                    android:text="@string/teamLabel"
                     android:textColor="@color/black"
                     android:textSize="35sp" />
 
@@ -83,7 +83,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:padding="30dp"
-                    android:text="Marcin Kielar\nMarcin Matoga\nMateusz Piątkowski\nBartek Wawrzyniak\nDasha Moroz\nEmil Gutkiewicz\nAdam Skowronek\nJanek Majchrzycki"
+                    android:text="@string/teamMembers"
                     android:textColor="@color/black"
                     android:textSize="25sp" />
             </LinearLayout>

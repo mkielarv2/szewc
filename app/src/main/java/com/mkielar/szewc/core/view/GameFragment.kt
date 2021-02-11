@@ -16,17 +16,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.mkielar.szewc.core.model.Grid
-import com.mkielar.szewc.core.model.Line
-import com.mkielar.szewc.core.model.Player
 import com.mkielar.szewc.core.viewmodel.GameViewModel
 import com.mkielar.szewc.databinding.FragmentGameBinding
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.*
-import kotlin.concurrent.timerTask
-import kotlin.coroutines.coroutineContext
 
 class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
@@ -76,16 +69,22 @@ class GameFragment : Fragment() {
         }
 
         viewModel.gridUpdateCallback = {
-            fragmentGameBinding.p1Card.setCardBackgroundColor(Color.RED)
-            fragmentGameBinding.p1Card.setCardBackgroundColor(Color.WHITE)
+            if ((it.turnCounter + it.offsetCounter) % it.players.size == 0) {
+                fragmentGameBinding.p1Card.setCardBackgroundColor(it.players[0].color)
+                fragmentGameBinding.p2Card.setCardBackgroundColor(Color.WHITE)
+            } else {
+                fragmentGameBinding.p2Card.setCardBackgroundColor(it.players[1].color)
+                fragmentGameBinding.p1Card.setCardBackgroundColor(Color.WHITE)
+            }
             gridView.drawGrid(it.grid)
         }
 
         viewModel.endGameCallback = {
             if (it.size == 1) {
-                Toast.makeText(requireContext(), "Winner is ${it.first().nick}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Wygrał ${it.first().nick}", Toast.LENGTH_SHORT)
+                    .show()
             } else {
-                Toast.makeText(requireContext(), "Tie", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Remis", Toast.LENGTH_SHORT).show()
             }
 
             viewLifecycleOwner.lifecycleScope.launch {

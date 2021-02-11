@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/onboardingPaddingTitle"
-        android:text="Stawiaj kreski dotykając lini na planszy"
+        android:text="@string/onboarding1label"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/textSize"
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Dalej"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/onboardingPaddingTitle"
-        android:text="Gra kończy się, gdy wszystkie pola są zajęte. Wygrywa gracz z większą ilością punktów"
+        android:text="@string/onboarding3label"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="@dimen/textSize"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="Dalej"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
