@@ -33,7 +33,7 @@ class NetGameFragment : Fragment() {
     private lateinit var fragmentGameBinding: FragmentGameBinding
     private lateinit var gridView: GridView
 
-    private val mSocket = IO.socket("http://172.21.9.60:3000") // TODO replace placeholder
+    private val mSocket = IO.socket("http://172.21.9.65:3000") // TODO replace placeholder
     private var myColor = 0
 
     override fun onCreateView(
@@ -128,6 +128,12 @@ class NetGameFragment : Fragment() {
                         "0" -> viewModel.verticalTouch(new[1].toInt())
                         "1" -> viewModel.horizontalTouch(new[1].toInt())
                     }
+                }
+            }
+            on("disconnect") {
+                activity?.runOnUiThread {
+                    Toast.makeText(requireContext(), "Połączenie zostało niespodziewanie zakończone przez serwer, gra zakończona", Toast.LENGTH_LONG).show()
+                    findNavController().navigate(NetGameFragmentDirections.actionNetGameFragmentToMainFragment())
                 }
             }
             connect()
