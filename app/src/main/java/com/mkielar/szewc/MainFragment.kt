@@ -82,8 +82,14 @@ class MainFragment : Fragment() {
         }
 
         binding.networkButton.setOnClickListener {
-            findNavController()
-                    .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment(binding.player1EditText.text.toString()))
+
+            val username = binding.player1EditText.text.toString()
+            if(!username.matches("[a-zA-Z0-9]{1,15}".toRegex())) {
+                binding.player1EditText.error = "Niepoprawny nick"
+            } else {
+                findNavController()
+                        .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment(username))
+            }
         }
     }
 }
