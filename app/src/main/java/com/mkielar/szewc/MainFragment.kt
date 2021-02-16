@@ -15,7 +15,7 @@ class MainFragment : Fragment() {
 
     private lateinit var binding: MainFragmentBinding
 
-    override fun onCreateView(
+            override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -79,6 +79,11 @@ class MainFragment : Fragment() {
                     MainFragmentDirections.actionMainFragmentToGameFragment(arrayOf(p1, p2))
                 )
             }
+        }
+
+        binding.networkButton.setOnClickListener {
+            findNavController()
+                    .navigate(MainFragmentDirections.actionMainFragmentToNetGameFragment(binding.player1EditText.text.toString()))
         }
     }
 }

@@ -14,6 +14,9 @@
             android:id="@+id/action_mainFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
         <action
+            android:id="@+id/action_mainFragment_to_netGameFragment"
+            app:destination="@id/netGameFragment" />
+        <action
             android:id="@+id/action_mainFragment_to_onboarding1Fragment"
             app:destination="@id/onboarding1Fragment" />
         <action
@@ -32,6 +35,19 @@
         <argument
             android:name="players"
             app:argType="com.mkielar.szewc.core.model.Player[]" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/netGameFragment"
+        android:name="com.mkielar.szewc.core.view.NetGameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_netGameFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <argument
+            android:name="playerName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/onboarding1Fragment"
