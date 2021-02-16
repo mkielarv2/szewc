@@ -33,7 +33,7 @@ class NetGameFragment : Fragment() {
     private lateinit var fragmentGameBinding: FragmentGameBinding
     private lateinit var gridView: GridView
 
-    private val mSocket = IO.socket("http://172.21.9.65:3000") // TODO replace placeholder
+    private val mSocket = IO.socket("https://szewc-ino.herokuapp.com")
     private var myColor = 0
 
     override fun onCreateView(
