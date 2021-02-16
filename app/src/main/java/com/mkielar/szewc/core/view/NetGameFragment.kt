@@ -1,6 +1,7 @@
 package com.mkielar.szewc.core.view
 
 import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -48,9 +49,14 @@ class NetGameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val dialog = ProgressDialog.show(
-            requireContext(), "Oczekiwanie...",
-            "Oczekiwanie na drugiego gracza", true
-        )
+            requireContext(),
+            "Oczekiwanie...",
+            "Oczekiwanie na drugiego gracza",
+            true,
+            true
+        ) {
+            findNavController().popBackStack()
+        }
 
         dialog.show()
 
