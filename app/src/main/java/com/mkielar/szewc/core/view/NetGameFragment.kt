@@ -93,7 +93,7 @@ class NetGameFragment : Fragment() {
 
             viewLifecycleOwner.lifecycleScope.launch {
                 delay(2000)
-                findNavController().navigate(NetGameFragmentDirections.actionNetGameFragmentToMainFragment())
+                findNavController().popBackStack()
             }
         }
 
@@ -133,7 +133,7 @@ class NetGameFragment : Fragment() {
             on("disconnect") {
                 activity?.runOnUiThread {
                     Toast.makeText(requireContext(), "Połączenie zostało niespodziewanie zakończone przez serwer, gra zakończona", Toast.LENGTH_LONG).show()
-                    findNavController().navigate(NetGameFragmentDirections.actionNetGameFragmentToMainFragment())
+                    findNavController().popBackStack()
                 }
             }
             connect()
