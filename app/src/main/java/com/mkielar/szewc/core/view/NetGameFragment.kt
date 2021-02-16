@@ -138,8 +138,10 @@ class NetGameFragment : Fragment() {
             }
             on("disconnect") {
                 activity?.runOnUiThread {
-                    Toast.makeText(requireContext(), "Połączenie zostało niespodziewanie zakończone przez serwer, gra zakończona", Toast.LENGTH_LONG).show()
-                    findNavController().popBackStack()
+                    context?.let {
+                        Toast.makeText(it, "Połączenie zostało niespodziewanie zakończone przez serwer, gra zakończona", Toast.LENGTH_LONG).show()
+                        findNavController().popBackStack()
+                    }
                 }
             }
             connect()
@@ -149,8 +151,7 @@ class NetGameFragment : Fragment() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
-
         mSocket.close()
+        super.onDestroy()
     }
 }
