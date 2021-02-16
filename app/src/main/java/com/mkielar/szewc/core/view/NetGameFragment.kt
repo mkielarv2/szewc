@@ -1,5 +1,6 @@
 package com.mkielar.szewc.core.view
 
+import android.app.ProgressDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -24,6 +25,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
+
 class NetGameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
     private val args: NetGameFragmentArgs by navArgs()
@@ -35,8 +37,8 @@ class NetGameFragment : Fragment() {
     private var myColor = 0
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         fragmentGameBinding = FragmentGameBinding.inflate(inflater)
         return fragmentGameBinding.root
@@ -44,6 +46,13 @@ class NetGameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val dialog = ProgressDialog.show(
+            requireContext(), "Oczekiwanie...",
+            "Oczekiwanie na drugiego gracza", true
+        )
+
+        dialog.show()
 
         gridView = GridView(requireContext()).apply {
             layoutParams = FrameLayout.LayoutParams(MATCH_PARENT, WRAP_CONTENT, Gravity.CENTER)
@@ -107,6 +116,8 @@ class NetGameFragment : Fragment() {
                     fragmentGameBinding.p1Score.text = "0"
                     fragmentGameBinding.p2Score.text = "0"
                     fragmentGameBinding.p1Card.setCardBackgroundColor(viewModel.players[0].color)
+
+                    dialog.dismiss()
                 }
             }
             on("move") {
