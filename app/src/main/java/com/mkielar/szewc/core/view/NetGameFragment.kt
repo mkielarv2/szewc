@@ -135,4 +135,10 @@ class NetGameFragment : Fragment() {
 
         viewModel.startGame()
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        mSocket.close()
+    }
 }
